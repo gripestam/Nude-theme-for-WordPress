@@ -551,6 +551,10 @@ input {
 -webkit-appearance: none;
 -webkit-border-radius: 0;
 }
+/* Fix responsive image height in IE8 */
+html.lt-ie9 img {
+	width: auto;
+}
 
 .vertical-align {
   position: relative;
