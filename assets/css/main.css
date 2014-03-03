@@ -547,13 +547,30 @@ img.aligncenter,
    Author's custom styles
    ========================================================================== */
 /* Remove border-radius and shadows from iOS-devices */
-input {
--webkit-appearance: none;
--webkit-border-radius: 0;
+input, textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }
+/* Text rendering */
+html {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+}
+
+/* Responsive embed */
+.embed-container { position: relative; padding-bottom: 56.25%; /*padding-top: 30px;*/ height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
 /* Fix responsive image height in IE8 */
 html.lt-ie9 img {
 	width: auto;
+}
+
+/* Fix max-width issue (zoom controls not rendering correctly) with Google Maps */
+.gmnoprint img {
+    max-width: none; 
 }
 
 .vertical-align {
