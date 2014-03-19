@@ -547,14 +547,14 @@ img.aligncenter,
    Author's custom styles
    ========================================================================== */
 /* Remove border-radius and shadows from iOS-devices */
-input, textarea {
+input[type='text'], input[type='email'], input[type='url'], input[type='submit'], input[type='password'], input.search, textarea {
 	-webkit-appearance: none;
 	-webkit-border-radius: 0;
 }
 /* Text rendering */
 html {
   text-rendering: optimizeLegibility;
-  font-feature-settings: "kern";
+  /*font-feature-settings: "kern"; Does not work with webfonts in IE10 */
   -webkit-font-feature-settings: "kern";
   -moz-font-feature-settings: "kern";
   -moz-font-feature-settings: "kern=1";

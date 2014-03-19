@@ -249,18 +249,50 @@ function nude_iosmeta() {
 	?>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link href="icon@144x144.png" sizes="144x144" rel="apple-touch-icon-precomposed">
-	<link href="start@320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
-	<link href="start@640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-	<link href="start@640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-	<link href="start@768x1004.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
-	<link href="start@748x1024.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
-	<link href="start@1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-	<link href="start@1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="<?php get_option('url'); ?>/assets/images/ios/icon@144x144.png" sizes="144x144" rel="apple-touch-icon-precomposed">
+	<link href="<?php get_option('url'); ?>/assets/images/ios/start@320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+	<link href="<?php get_option('url'); ?>/assets/images/ios/start@640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="<?php get_option('url'); ?>/assets/images/ios/start@640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="<?php get_option('url'); ?>/assets/images/ios/start@768x1004.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+	<link href="<?php get_option('url'); ?>/assets/images/ios/start@748x1024.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+	<link href="<?php get_option('url'); ?>/assets/images/ios/start@1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="<?php get_option('url'); ?>/assets/images/ios/start@1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 	<?php
 }
 endif;
 add_action('wp_head', 'nude_iosmeta');
+
+
+
+
+
+
+
+
+/**
+ * http://www.jasonbobich.com/wordpress/hiding-the-wordpress-admin-panel-to-your-subscribers/
+ * Disable admin bar on the frontend of your website
+ * for subscribers.
+ *//*
+function nude_disable_admin_bar() { 
+	if( ! current_user_can('edit_posts') )
+		add_filter('show_admin_bar', '__return_false');	
+}
+add_action( 'after_setup_theme', 'nude_disable_admin_bar' );
+ 
+/**
+ * Redirect back to homepage and not allow access to 
+ * WP admin for Subscribers.
+ *//*
+function nude_redirect_admin(){
+	if ( ! current_user_can( 'edit_posts' ) ){
+		wp_redirect( site_url() );
+		exit;		
+	}
+}
+add_action( 'admin_init', 'nude_redirect_admin' );
+*/
+
 
 
 
