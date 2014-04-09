@@ -27,7 +27,7 @@ function nude_setup() {
 		'search-form', 'comment-form', 'comment-list',
 	) );
 	
-	// Change the ACF:Options Page menu to 'Stadsporten'
+	// Change the ACF:Options Page titles
 	if( function_exists('acf_set_options_page_title') )
 	{
 	    acf_set_options_page_title( __('Konfigurera', 'nude') );
