@@ -137,7 +137,16 @@ add_action('wp_head', 'nude_favicon');
  *	##### EXTRA SETTINGS #####
  *
  */
- 
+
+// Wrap oEmbeds with an embed-conatiner to make it responsive
+function responsive_video_wrapping($html, $url, $attr) {
+	$html = '<div class="embed-container">' . $html . '</div>';
+	return $html;
+}
+add_filter( 'embed_oembed_html', 'responsive_video_wrapping', 10, 3);
+
+
+
 if ( ! function_exists( 'paging_nav_num' ) ) :
 	/**
 	 * Displays navigation to next/previous set of posts with numbers.
