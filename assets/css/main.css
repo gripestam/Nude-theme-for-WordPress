@@ -546,6 +546,17 @@ img.aligncenter,
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+html { 
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+} 
+*, *:before, *:after { 
+	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+}
+
 /* Remove border-radius and shadows from iOS-devices */
 input[type='text'], input[type='email'], input[type='url'], input[type='submit'], input[type='password'], input.search, textarea {
 	-webkit-appearance: none;
@@ -581,11 +592,6 @@ html.lt-ie9 img {
   transform: translateY(-50%);
 }
 
-*, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 img {
 	max-width: 100%;
 }
