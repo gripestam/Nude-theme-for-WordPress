@@ -36,11 +36,32 @@ function nude_setup() {
 	{
 	    acf_set_options_page_menu( __('Konfigurera', 'nude') );
 	}
-
+	
+	// Add image size
+	//add_image_size( 'medium-square', 600, 600, true ); // Adds a 600x600 image hard-crop from center
+	
+	// De-register inline gallery styles
+	//add_filter( 'use_default_gallery_style', '__return_false' );
+	
 }
 endif; // nude_setup
 
 add_action( 'after_setup_theme', 'nude_setup' );
+
+
+
+
+// Make it possible to choose the new image sizes from WordPress Admin
+add_filter( 'image_size_names_choose', 'site_image_sizes' );
+function site_image_sizes( $sizes ) {
+   	return array_merge( $sizes, array(
+        'medium-square' => __( 'Medium square', 'nude' ),
+	) );
+}
+
+
+
+
 
 
 function nude_scripts() {
@@ -124,11 +145,6 @@ function add_opengraph_doctype( $output ) {
 add_filter('language_attributes', 'add_opengraph_doctype'); 
 
 
-// Adds a favicon
-function nude_favicon() {
-	 echo '<link rel="Shortcut Icon" type="image/x-icon" href="'. get_option('siteurl') .'/assets/images/favicon.png" />';
-}
-add_action('wp_head', 'nude_favicon');
 
 
 // Wrap oEmbeds with an embed-conatiner to make it responsive
@@ -139,10 +155,7 @@ function responsive_video_wrapping($html, $url, $attr) {
 add_filter( 'embed_oembed_html', 'responsive_video_wrapping', 10, 3);
 
 
-/*
- *	##### EXTRA SETTINGS #####
- *
- */
+
 if ( ! function_exists( 'paging_nav_num' ) ) :
 	/**
 	 * Displays navigation to next/previous set of posts with numbers.
@@ -231,41 +244,91 @@ add_action('wp_head', 'insert_og_in_head', 5);
 
 
 
-/**
-	### Pick-n-choose your iOS meta
 
+/*
+	Favicons to the max!
 */ 
-if ( ! function_exists( 'nude_iosmeta' ) ) :
-function nude_iosmeta() {
-	/*
-		Lines in order of appearance
-		1. iOS standalone web app
-		2. iOS status bar appearance, options: black, black-translucent
-		3. iOS icon, just one size because ios will scale it, remove "-precomposed" if you want ios to add effects
-		<!-- iOS startup images -->
-		4. iPhone
-		5. iPhone (Retina)
-		6. iPhone 5
-		7. iPad Portrait
-		8. iPad Landscape
-		9. iPad (Retina) Portrait
-		10. iPad (Retina) Landscape
-	*/
-	?>
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link href="<?php get_option('url'); ?>/assets/images/ios/icon@144x144.png" sizes="144x144" rel="apple-touch-icon-precomposed">
-	<link href="<?php get_option('url'); ?>/assets/images/ios/start@320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
-	<link href="<?php get_option('url'); ?>/assets/images/ios/start@640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-	<link href="<?php get_option('url'); ?>/assets/images/ios/start@640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-	<link href="<?php get_option('url'); ?>/assets/images/ios/start@768x1004.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
-	<link href="<?php get_option('url'); ?>/assets/images/ios/start@748x1024.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
-	<link href="<?php get_option('url'); ?>/assets/images/ios/start@1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-	<link href="<?php get_option('url'); ?>/assets/images/ios/start@1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-	<?php
+if ( ! function_exists( 'site_header_meta' ) ) :
+	
+	function site_header_meta() { ?>
+		<!-- get easily from realfavicongenerator.net -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="apple-touch-icon" sizes="57x57" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?php get_option('url'); ?>/assets/images/favicon/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="<?php get_option('url'); ?>/assets/images/favicon/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="<?php get_option('url'); ?>/assets/images/favicon/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="<?php get_option('url'); ?>/assets/images/favicon/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="<?php get_option('url'); ?>/assets/images/favicon/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="<?php get_option('url'); ?>/assets/images/favicon/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="<?php get_option('url'); ?>/assets/images/favicon/manifest.json">
+		<link rel="mask-icon" href="<?php get_option('url'); ?>/assets/images/favicon/safari-pinned-tab.svg" color="#004a83">
+		<link rel="shortcut icon" href="<?php get_option('url'); ?>/assets/images/favicon/favicon.ico">
+		<meta name="msapplication-TileColor" content="#004a83">
+		<meta name="msapplication-TileImage" content="<?php get_option('url'); ?>/assets/images/favicon/mstile-144x144.png">
+		<meta name="msapplication-config" content="<?php get_option('url'); ?>/assets/images/favicon/browserconfig.xml">
+		<meta name="theme-color" content="#004a83">
+	
+		<?php /*<link href="<?php get_option('url'); ?>/assets/images/ios/icon@144x144.png" sizes="144x144" rel="apple-touch-icon-precomposed">
+		<link href="<?php get_option('url'); ?>/assets/images/ios/start@320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+		<link href="<?php get_option('url'); ?>/assets/images/ios/start@640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+		<link href="<?php get_option('url'); ?>/assets/images/ios/start@640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+		<link href="<?php get_option('url'); ?>/assets/images/ios/start@768x1004.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+		<link href="<?php get_option('url'); ?>/assets/images/ios/start@748x1024.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+		<link href="<?php get_option('url'); ?>/assets/images/ios/start@1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+		<link href="<?php get_option('url'); ?>/assets/images/ios/start@1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"> */?>
+		<?php
+	}
+	endif;
+add_action('wp_head', 'site_header_meta');
+
+
+
+
+
+
+
+
+
+// Description: Replace and/or remove accents and other special characters in filenames on upload
+add_filter( 'sanitize_file_name', 'extended_sanitize_file_name', 10, 2 );
+function extended_sanitize_file_name( $filename ) {
+	$sanitized_filename = remove_accents( $filename );
+	return $sanitized_filename;
 }
-endif;
-add_action('wp_head', 'nude_iosmeta');
+
+
+
+
+if( ! function_exists('fix_no_editor_on_posts_page'))
+{
+	/**
+	 * Add the wp-editor back into WordPress after it was removed in 4.2.2.
+	 *
+	 * @param $post
+	 * @return void
+	 */
+	function fix_no_editor_on_posts_page($post)
+	{
+		if($post->ID != get_option('page_for_posts'))
+			return;
+
+		remove_action('edit_form_after_title', '_wp_posts_page_notice');
+		add_post_type_support('page', 'editor');
+	}
+	add_action('edit_form_after_title', 'fix_no_editor_on_posts_page', 0);
+}
+
+
+
 
 
 

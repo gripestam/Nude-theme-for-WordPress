@@ -612,9 +612,16 @@ blockquote {
 		content: close-quote;
 	}
 
+ul {
+	list-style-type: square;
+}
 
 
 
+body {
+    font-size: 16px;
+    line-height: 1.2;
+}
 
 
 
