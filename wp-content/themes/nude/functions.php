@@ -27,15 +27,30 @@ function nude_setup() {
 		'search-form', 'comment-form', 'comment-list',
 	) );
 	
-	// Change the ACF:Options Page titles
-	if( function_exists('acf_set_options_page_title') )
-	{
-	    acf_set_options_page_title( __('Konfigurera', 'nude') );
-	}
-	if( function_exists('acf_set_options_page_menu') )
-	{
-	    acf_set_options_page_menu( __('Konfigurera', 'nude') );
-	}
+	// ACF Options page
+	/*if( function_exists('acf_add_options_page') ) {
+	
+		acf_add_options_page(array(
+			'page_title' 	=> 'Theme General Settings',
+			'menu_title'	=> 'Theme Settings',
+			'menu_slug' 	=> 'theme-general-settings',
+			'capability'	=> 'edit_posts',
+			'redirect'		=> false
+		));
+		
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Theme Header Settings',
+			'menu_title'	=> 'Header',
+			'parent_slug'	=> 'theme-general-settings',
+		));
+		
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Theme Footer Settings',
+			'menu_title'	=> 'Footer',
+			'parent_slug'	=> 'theme-general-settings',
+		));
+	
+	}*/
 	
 	// Add image size
 	//add_image_size( 'medium-square', 600, 600, true ); // Adds a 600x600 image hard-crop from center
