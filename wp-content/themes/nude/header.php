@@ -21,12 +21,7 @@
 		<?php //Mobile Internet Explorer allows us to activate ClearType technology for smoothing fonts for easy reading ?>
 		<meta http-equiv="cleartype" content="on">
 		
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<?php // Pinned icon in Windows. Must be 144x144px. ?>
-		<meta name="msapplication-TileImage" content="<?php bloginfo('url'); ?>/assets/images/tile144x144.png" />
-		<meta name="msapplication-TileColor" content="#666666" />
-
-        <link rel="stylesheet" href="<?php bloginfo('url'); ?>/assets/css/normalize.css">
+        <!--<link rel="stylesheet" href="<?php bloginfo('url'); ?>/assets/css/normalize.css">-->
         <link rel="stylesheet" href="<?php bloginfo('url'); ?>/assets/css/main.css">
         <script src="<?php bloginfo('url'); ?>/assets/js/vendor/modernizr-2.6.2.min.js"></script>
         <!--[if lt IE 9]>
