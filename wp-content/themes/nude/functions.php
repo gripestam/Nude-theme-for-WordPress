@@ -343,7 +343,15 @@ if( ! function_exists('fix_no_editor_on_posts_page'))
 }
 
 
-
+/*
+ * Increase the 1600px limit on srcset
+ *
+ * @since WordPress 4.4
+ *
+ */
+add_filter('max_srcset_image_width', function($max_srcset_image_width, $size_array){
+    return 1920;
+}, 10, 2);
 
 
 
