@@ -1,6 +1,11 @@
+cgi-bin
+.DS_Store
 .idea
 *.timthumb.txt
 *.log
+
+.sass-cache
+
 sitemap.xml
 sitemap.xml.gz
 wp-content/advanced-cache.php
@@ -13,3 +18,4 @@ wp-content/uploads/
 wp-content/wp-cache-config.php
 _tmp
 thumb.php
+_old

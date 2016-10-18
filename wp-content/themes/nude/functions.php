@@ -77,10 +77,34 @@ function site_image_sizes( $sizes ) {
 
 
 
+/**
+ * Attach a class to linked images' parent anchors
+ * Excellent when working with external lightbox JS plugins
+ */
+function content_linked_images_class($content) {
+
+	$classes = 'lightgallery'; // separate classes by spaces - 'img image-link'
+
+	// check if there are already a class property assigned to the anchor
+	if ( preg_match('/<a.*? class=".*?"><img/', $content) ) {
+	  // If there is, simply add the class
+	  $content = preg_replace('/(<a.*? class=".*?)(".*?><img)/', '$1 ' . $classes . '$2', $content);
+	} else {
+	  // If there is not an existing class, create a class property
+	  $content = preg_replace('/(<a.*?)><img/', '$1 class="' . $classes . '" ><img', $content);
+	}
+	return $content;
+}
+
+add_filter('the_content','content_linked_images_class');
+add_filter('acf_the_content', 'content_linked_images_class', 10, 3);
+
+
+
 
 
 function nude_scripts() {
-	// An example
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}	
@@ -345,13 +369,83 @@ if( ! function_exists('fix_no_editor_on_posts_page'))
 
 /*
  * Increase the 1600px limit on srcset
- *
  * @since WordPress 4.4
- *
  */
 add_filter('max_srcset_image_width', function($max_srcset_image_width, $size_array){
     return 1920;
 }, 10, 2);
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for post thumbnails
+ *
+ * @since Twenty Sixteen 1.0
+ *
+ * @param array $attr Attributes for the image markup.
+ * @param int   $attachment Image attachment ID.
+ * @param array $size Registered image size or flat array of height and width dimensions.
+ * @return string A source size value for use in a post thumbnail 'sizes' attribute.
+ */
+function site_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+	
+	// If thumbnail is outputed as "full", change smallest image to 600/medium-square on lowest resolutions
+	if ( 'full' === $size && !is_page_template( 'page-template.php' ) ) {
+		
+		$square_url = wp_get_attachment_image_src( $attachment->ID, 'medium-square' );
+		$square_url = $square_url[0];
+		
+		$new_attr = explode(',', $attr['srcset']);
+		$new_attr[0] = $square_url . ' 750w';
+		
+		$attr['srcset'] = implode(',', $new_attr);
+		
+	}
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'site_post_thumbnail_sizes_attr', 10 , 3 );
+
+
+
+// Add ancestor-classes to nav menu when on single posts
+add_filter( 'nav_menu_css_class', 'custom_menu_classes', 10, 2 );
+function custom_menu_classes( $classes , $item ){
+	if ( get_post_type() == 'object' ) {
+		// remove unwanted classes if found
+		
+		$classes = str_replace( 'current-page-ancestor', '', $classes );
+		
+		// find the id you want and add the class you want
+		if ( $item->object_id == 10 ) {
+			$classes[] = 'current-page-ancestor current-menu-ancestor';
+		}
+	}
+	return $classes;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
