@@ -1,0 +1,25 @@
+.alert {
+	margin: 0 0 1rem;
+	padding: 1rem 1.5rem;
+	
+	&__success {
+		background: $color__success--alt-2;
+		border: 1px solid $color__success;
+		color: $color__success--alt;
+	}
+	&__info {
+		background: $color__info--alt-2;
+		border: 1px solid $color__info;
+		color: $color__info--alt;
+	}
+	&__warning {
+		background: $color__warning--alt-2;
+		border: 1px solid $color__warning;
+		color: $color__warning--alt;
+	}
+	&__danger {
+		background: $color__danger--alt-2;
+		border: 1px solid $color__danger;
+		color: $color__danger--alt;
+	}
+}

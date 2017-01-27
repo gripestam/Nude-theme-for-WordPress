@@ -1,0 +1,52 @@
+/* ==========================================================================
+   STYLEGUIDE (styleguide.html in root)
+   ========================================================================== */
+.styleguide {
+	.wrapper {
+		margin: 3rem auto;
+		max-width: 1280px;
+	}
+	.block {
+		margin: 0 0 5rem;
+		position: relative;
+		
+		.desc {
+			background: #b2ffcd;
+			display: inline-block;
+			margin: 0 0 .5rem;
+			padding: .2rem .5rem;
+			font-size: .8rem;
+		}
+	}
+	.block-title {
+		background: #000;
+		color: #fff;
+		margin: 0 0 2rem;
+		padding: .5rem;
+		text-transform: uppercase;	
+	}
+	
+	.color-swatches {
+		
+		div {
+			padding: .5rem;
+			
+			svg {
+				width: 100%;
+			}
+		
+			span {
+				display: block;
+				font-size: .6rem;
+				text-align: center;
+			}
+		}	 
+	}
+	
+	.btn {
+		margin: .5rem;
+	}
+	.btn-group .btn {
+		margin: 0;
+	}
+}

@@ -1,0 +1,181 @@
+/* ==========================================================================
+   BUTTONS
+   Usage: class="btn btn--primary btn--fullwidth"
+   ========================================================================== */
+button,
+.contributor-posts-link,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn {
+	border: 1px solid transparent; /* Add transparent border so we can visually align different button types */
+	border-radius: 3px;
+	cursor: pointer;
+	display: inline-block;
+	font: inherit;
+	margin: 0;
+	padding: .5rem 1rem;
+	text-decoration: none;
+	vertical-align: middle;
+	transition: all .2s ease-in-out;
+}
+
+.btn--fullwith {
+	text-align: center;
+	width: 100%;
+}
+
+
+button,
+.contributor-posts-link,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn--primary {
+	background: $color__brand;
+	color: $color__white;
+		
+	&:hover,
+	&:focus {
+		background: $color__brand--light;
+		color: $color__white;
+	}
+	&:active,
+	&:active {
+		background: $color__brand--dark;
+	}
+}
+
+.btn--primary--inverted {
+	background: $color__white;
+	color: $color__black;
+	
+	&:hover,
+	&:focus {
+		background: $color__gray--x-light;
+		color: $color__black;
+	}
+}
+
+
+/* ==========================================================================
+   SIZES
+   ========================================================================== */
+.btn--small {
+	font-size: 60%;
+	padding: .3rem .5rem;
+}
+.btn--large {
+	font-size: 150%;
+	padding: 1.5rem 3rem;
+}
+
+
+/* ==========================================================================
+   GHOST BUTTONS
+   ========================================================================== */   
+.btn--primary--ghost,
+.btn--secondary {
+	background: none;
+	border: 1px solid $color__brand;
+	color: $color__brand;
+		
+	&:hover,
+	&:focus {
+		background: none;
+		border: 1px solid $color__brand--light;
+		color: $color__brand--light;
+	}
+}
+
+.btn--primary--ghost--inverted {
+	background: none;
+	border: 1px solid $color__white;
+	color: $color__white;
+	
+	&:hover,
+	&:focus {
+		background: none;
+		border: 1px solid $color__gray--x-light;
+		color: $color__gray--x-light;
+	}
+}
+
+/* ==========================================================================
+   STATE BUTTONS
+   ========================================================================== */
+.btn--success {
+	background-color: $color__success;
+	border-color: $color__success;
+	color: $color__white;
+	
+	&:hover,
+	&:active {
+		background-color: $color__success--alt;
+		border-color: $color__success--alt;
+		color: $color__white;
+	}
+}
+.btn--info {
+	background-color: $color__info;
+	border-color: $color__info;
+	color: $color__white;
+	
+	&:hover,
+	&:active {
+		background-color: $color__info--alt;
+		border-color: $color__info--alt;
+		color: $color__white;
+	}
+}
+.btn--warning {
+	background-color: $color__warning;
+	border-color: $color__warning;
+	color: $color__white;
+	
+	&:hover,
+	&:active {
+		background-color: $color__warning--alt;
+		border-color: $color__warning--alt;
+		color: $color__white;
+	}
+}
+.btn--danger {
+	background-color: $color__danger;
+	border-color: $color__danger;
+	color: $color__white;
+	
+	&:hover,
+	&:active {
+		background-color: $color__danger--alt;
+		border-color: $color__danger--alt;
+		color: $color__white;
+	}
+}
+.btn--inactive {
+	background-color: $color__gray--x-light;
+	color: $color__gray--light;
+	cursor: not-allowed;
+	
+	&:hover {
+		color: $color__gray--light;
+	}
+}
+
+
+/* ==========================================================================
+   BUTTON GROUP
+   ========================================================================== */
+.btn-group {
+	margin: 1rem 0;
+	
+	.btn {
+		border-radius: 0;
+		&:first-of-type {
+			border-radius: 3px 0 0 3px;
+		}
+		&:last-of-type {
+			border-radius: 0 3px 3px 0;
+		}
+	}
+}

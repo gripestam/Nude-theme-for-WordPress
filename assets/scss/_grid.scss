@@ -8,6 +8,86 @@
     align-content: flex-start;
 }
 
+
+/* ==========================================================================
+   ADDITIONS
+   ========================================================================== */
+/*
+ * When using boxes inside pure grid
+ * use gutters to "reset" visual 
+ * alignment on container (.pure-g) 
+ */
+.pure-g__gutters {
+	margin: 0 -1rem;
+
+	&--no-y-margin {
+		margin-bottom: -1rem;
+		margin-top: -1rem;
+	}
+}
+.pure-g__gutters-x2 {
+	margin: 0 -2rem;
+
+	&--no-y-margin {
+		margin-bottom: -1rem;
+		margin-top: -1rem;
+	}
+}
+
+// Adds margins, "air", around items.
+.pure__box--air {
+	margin: 1rem;
+}
+.pure__box--air-x2 {
+	margin: 1rem 2rem;
+}
+
+
+.pure-g--align-center {
+	justify-content: center;
+}
+
+// Adds border or gray bg around items.
+.pure__box--wrap {
+	position: relative;
+}
+.pure__box--border,
+.pure__box--gray {
+	margin: 1rem;
+	padding: 1rem;
+}
+.pure__box--border:after {
+	border: 1px solid $color__gray--light;
+	bottom: 0;
+	content: '';
+	position: absolute;
+	left: 0;
+	margin: 1rem;
+	right: 0;
+	top: .0;
+	z-index: -1;
+}
+
+.pure__box--gray:after {
+	background-color: $color__gray--x-light;
+	bottom: 0;
+	content: '';
+	position: absolute;
+	left: 0;
+	margin: 1rem;
+	right: 0;
+	top: .0;
+	z-index: -1;
+}
+
+.pure-u-1,
+.pure-u-1-1 {
+	width: 100%;
+}
+.pure-u-1-2 {
+	width: 50%;
+}
+
 @media screen and (min-width: 35.5em) {
     .pure-u-sm-1,
     .pure-u-sm-1-1,

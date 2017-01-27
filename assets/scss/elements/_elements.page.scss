@@ -1,0 +1,63 @@
+/* ==========================================================================
+   #PAGE
+   ========================================================================== */
+
+/**
+ * Simple page-level setup.
+ *
+ * 1. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 2. Ensure the page always fills at least the entire height of the viewport.
+ */
+html {
+	font-size: 16px;
+    line-height: 1.2;
+	overflow-y: scroll; /* [1] */
+	min-height: 100%; /* [2] */
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+*,
+*:before,
+*:after { 
+	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+}
+
+/* Text rendering */
+html {
+  text-rendering: optimizeLegibility;
+  /*font-feature-settings: "kern"; Does not work with webfonts in IE10 */
+  -webkit-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+}
+
+/* Remove border-radius and shadows from iOS-devices */
+input[type='text'], input[type='email'], input[type='url'], input[type='submit'], input[type='password'], input.search, textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+}
+
+body, button, input, label, textarea {
+	font-family: $font-primary;
+}
+body {
+    font-size: 16px;
+    line-height: 1.2;
+    
+    @media only screen and (min-width: 64em) {
+    	font-size: 19px;
+		line-height: 1.4;
+    }
+}
+
+@-ms-viewport {
+	width: device-width;
+}
+@viewport {
+	width: device-width;
+}

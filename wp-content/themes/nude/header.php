@@ -22,7 +22,7 @@
 		<meta http-equiv="cleartype" content="on">
 		
         <!--<link rel="stylesheet" href="<?php bloginfo('url'); ?>/assets/css/normalize.css">-->
-        <link rel="stylesheet" href="<?php bloginfo('url'); ?>/assets/css/main.css">
+        <link rel="stylesheet" href="<?php bloginfo('url'); ?>/assets/css/main-min.css">
         <script src="<?php bloginfo('url'); ?>/assets/js/vendor/modernizr-2.6.2.min.js"></script>
         <!--[if lt IE 9]>
 			<script src="<?php bloginfo('url'); ?>/assets/js/vendor/mediaqueries.js"></script>

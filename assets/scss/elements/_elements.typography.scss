@@ -1,0 +1,132 @@
+/* ==========================================================================
+   HEADINGS
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6,
+.alpha, .beta, .gamma, .delta, .epsilon, .zeta {
+	font-weight: bold;
+	line-height: 1.2;
+}
+h1,
+.alpha {
+	margin: 0 0 1rem;
+	
+	@media only screen and (min-width: 64em) {
+		font-size: 5rem;
+	}
+	@media only screen and (min-width: 100em) {
+		font-size: 7rem;
+	}
+	@media only screen and (min-width: 120em) {
+		font-size: 9rem;
+	}
+}
+h2,
+.beta {
+	margin: 1rem 0 .5rem;
+	
+	@media only screen and (min-width: 64em) {
+		font-size: 4rem;
+	}
+	@media only screen and (min-width: 100em) {
+		font-size: 5rem;
+	}
+	@media only screen and (min-width: 120em) {
+		font-size: 5.3rem;
+	}
+}
+h3,
+.gamma {
+	margin: 1rem 0 .5rem;
+	
+	@media only screen and (min-width: 64em) {
+		font-size: 3rem;
+	}
+	@media only screen and (min-width: 100em) {
+		font-size: 3.5rem;
+	}
+	@media only screen and (min-width: 120em) {
+		font-size: 3.8rem;
+	}
+}
+h4,
+.delta {
+	margin: 1rem 0 .5rem;
+	
+	@media only screen and (min-width: 64em) {
+		font-size: 2rem;
+	}
+	@media only screen and (min-width: 100em) {
+		font-size: 2.5rem;
+	}
+	@media only screen and (min-width: 120em) {
+		font-size: 2.7rem;
+	}
+}
+h5,
+.epsilon {
+	font-size: 1.2rem;
+	margin: 1rem 0 .5rem;
+	
+	@media only screen and (min-width: 64em) {
+		font-size: 1.4rem;
+	}
+}
+h6,
+.zeta {
+	font-size: 1rem;
+	margin: 1rem 0 .5rem;
+	
+	@media only screen and (min-width: 64em) {
+		font-size: 1.2rem;
+	}
+}
+
+/* ==========================================================================
+   TYPOGRAPHY MISC.
+   ========================================================================== */
+a {
+	color: $color__brand;
+	
+	&:hover {
+		color: $color__brand--light;
+	}
+	:active,
+	:focus {
+		color: $color__brand--dark;
+	}
+}
+
+
+blockquote {
+	border-left: 5px solid $color__black;
+	font-size: 2rem;
+	margin: 0 0 2rem;
+	padding: .3rem 0 .3rem 1rem;
+
+	p {
+		margin: 0;
+		
+		&:before {
+			content: open-quote;
+		}
+		&:after {
+			content: close-quote;
+		}
+	}
+	span.author {
+		font-size: .8rem;
+		font-style: italic;
+	}
+}
+
+
+ul {
+	list-style-type: square;
+}
+
+p {
+	margin: 0 0 1rem;
+}
+.text-center {
+	text-align: center;
+}

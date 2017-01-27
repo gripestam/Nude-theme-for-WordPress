@@ -1,0 +1,21 @@
+/* ==========================================================================
+   SEARCH
+   ========================================================================== */
+.search-box input[type="text"] {
+	border: none;
+	transition: all .2s ease-in-out;
+	width: 100px;
+	
+	&:focus {
+		width: 250px;
+	}	
+}
+.search-box input[type="submit"] {
+	background: $color__brand;
+	font-family: FontAwesome;
+	padding: 10px 10px 9px;
+
+	&:hover {
+		background: $color__brand--light;
+	}
+}

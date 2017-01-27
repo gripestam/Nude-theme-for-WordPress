@@ -65,19 +65,21 @@ add_action( 'after_setup_theme', 'nude_setup' );
 
 
 
-
-// Make it possible to choose the new image sizes from WordPress Admin
-add_filter( 'image_size_names_choose', 'site_image_sizes' );
-function site_image_sizes( $sizes ) {
-   	return array_merge( $sizes, array(
+/*
+ * Make it possible to choose the new image sizes (set above with add_image_size) from WordPress Admin
+ *
+ */
+/*function site_image_sizes( $sizes ) {
+	return array_merge( $sizes, array(
         'medium-square' => __( 'Medium square', 'nude' ),
 	) );
 }
+add_filter( 'image_size_names_choose', 'site_image_sizes' );
+*/
 
 
 
-
-/**
+/*
  * Attach a class to linked images' parent anchors
  * Excellent when working with external lightbox JS plugins
  */
@@ -102,7 +104,10 @@ add_filter('acf_the_content', 'content_linked_images_class', 10, 3);
 
 
 
-
+/*
+ * Enqueue scripts
+ *
+ */
 function nude_scripts() {
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -113,6 +118,30 @@ function nude_scripts() {
 add_action( 'wp_enqueue_scripts', 'nude_scripts' );
 
 
+
+/*
+ * Dequeue jquery if using none or using custom jquery implementation
+ *
+ */
+function dequeue_jquery_migrate( &$scripts){
+
+	if(!is_admin()){
+		$scripts->remove( 'jquery');
+		$scripts->remove( 'jquery-core');
+	}
+
+}
+add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate', 10 );
+
+
+
+
+
+
+/*
+ * Add body classes
+ *
+ */
 function nude_body_classes( $classes ) {
 
 	if ( is_archive() || is_search() || is_home() ) {
@@ -128,6 +157,10 @@ function nude_body_classes( $classes ) {
 add_filter( 'body_class', 'nude_body_classes' );
 
 
+/*
+ * Add post classes
+ *
+ */
 function nude_post_classes( $classes ) {
 	if ( ! post_password_required() && has_post_thumbnail() ) {
 		$classes[] = 'has-post-thumbnail';
@@ -138,6 +171,10 @@ function nude_post_classes( $classes ) {
 add_filter( 'post_class', 'nude_post_classes' );
 
 
+/*
+ * WP title
+ *
+ */
 function nude_wp_title( $title, $sep ) {
 	global $paged, $page;
 
@@ -164,29 +201,10 @@ function nude_wp_title( $title, $sep ) {
 add_filter( 'wp_title', 'nude_wp_title', 10, 2 );
 
 
-
-// Remove junk from head
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wp_generator');
-remove_action('wp_head', 'feed_links', 2);
-remove_action('wp_head', 'index_rel_link');
-remove_action('wp_head', 'wlwmanifest_link');
-remove_action('wp_head', 'feed_links_extra', 3);
-remove_action('wp_head', 'start_post_rel_link', 10, 0);
-remove_action('wp_head', 'parent_post_rel_link', 10, 0);
-remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
-
-
-// Adding the Open Graph in the Language Attributes
-function add_opengraph_doctype( $output ) {	
-	return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
-}
-add_filter('language_attributes', 'add_opengraph_doctype'); 
-
-
-
-
-// Wrap oEmbeds with an embed-conatiner to make it responsive
+/*
+ * Wrap oEmbeds with an embed-conatiner to make it responsive
+ *
+ */
 function responsive_video_wrapping($html, $url, $attr) {
 	$html = '<div class="embed-container">' . $html . '</div>';
 	return $html;
@@ -195,11 +213,11 @@ add_filter( 'embed_oembed_html', 'responsive_video_wrapping', 10, 3);
 
 
 
+/*
+ * Displays navigation to next/previous set of posts with numbers.
+ *
+ */
 if ( ! function_exists( 'paging_nav_num' ) ) :
-	/**
-	 * Displays navigation to next/previous set of posts with numbers.
-	 *
-	 */
 	function paging_nav_num () {
 	    global $wp_query;
 	    $big = 999999999; // need an unlikely integer
@@ -224,19 +242,13 @@ if ( ! function_exists( 'paging_nav_num' ) ) :
 endif;
 
 
-function dequeue_jquery_migrate( &$scripts){
-
-	if(!is_admin()){
-		$scripts->remove( 'jquery');
-		$scripts->remove( 'jquery-core');
-	}
-
-}
-add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate', 10 );
 
 
 
-// Add Open Graph Meta Info
+/*
+ * Add Open Graph Meta Info
+ *
+ */
 function insert_og_in_head() {
 	global $post;
 
@@ -285,12 +297,12 @@ add_action('wp_head', 'insert_og_in_head', 5);
 
 
 /*
-	Favicons to the max!
-*/ 
+ * Add Favicons
+ * get easily from realfavicongenerator.net
+ */
 if ( ! function_exists( 'site_header_meta' ) ) :
 	
 	function site_header_meta() { ?>
-		<!-- get easily from realfavicongenerator.net -->
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -330,31 +342,50 @@ if ( ! function_exists( 'site_header_meta' ) ) :
 add_action('wp_head', 'site_header_meta');
 
 
+/*
+ * Add Open Graph in the Language Attributes
+ *
+ */
+function add_opengraph_doctype( $output ) {	
+	return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
+add_filter('language_attributes', 'add_opengraph_doctype'); 
+
+
+/*
+ * Remove stuff from head
+ *
+ */
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'feed_links_extra', 3);
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
+remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 
 
 
-
-
-
-
-// Description: Replace and/or remove accents and other special characters in filenames on upload
-add_filter( 'sanitize_file_name', 'extended_sanitize_file_name', 10, 2 );
+/*
+ * Replace and/or remove accents and other special characters in filenames on upload
+ *
+ */
 function extended_sanitize_file_name( $filename ) {
 	$sanitized_filename = remove_accents( $filename );
 	return $sanitized_filename;
 }
+add_filter( 'sanitize_file_name', 'extended_sanitize_file_name', 10, 2 );
 
 
-
-
-if( ! function_exists('fix_no_editor_on_posts_page'))
-{
-	/**
-	 * Add the wp-editor back into WordPress after it was removed in 4.2.2.
-	 *
-	 * @param $post
-	 * @return void
-	 */
+/*
+ * Add the wp-editor back into WordPress after it was removed in 4.2.2.
+ *
+ * @param $post
+ * @return void
+ */
+if( ! function_exists('fix_no_editor_on_posts_page')) {
 	function fix_no_editor_on_posts_page($post)
 	{
 		if($post->ID != get_option('page_for_posts'))

@@ -1,0 +1,75 @@
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+/*
+ * 1. Ensure tables fill up as much space as possible.
+ */
+
+table {
+  width: 100%; /* [1] */
+}
+
+.table-wrapper {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.table {
+	text-align: left;
+	width: 512px;
+	
+	@media screen and (min-width: 32em) {
+		width: 100%;
+	}
+	
+	
+	caption {
+		margin: 0 0 1rem;
+		text-align: left;
+	}
+	
+	thead {
+		th {
+			font-size: 1rem;
+			font-weight: bold;
+		}
+	}
+	
+	tfoot {
+		td {
+			padding-top: .5rem;
+		}
+	}
+	
+	th, 
+	td {
+		font-size: .8rem;
+		padding: 5px;
+		-ms-word-break: break-word;
+		word-break: break-word;
+	}
+	
+	tbody {
+		
+		tr {
+			&:nth-child(odd) th,
+			&:nth-child(odd) td {
+				background-color: $color__gray--x-light;
+			}
+		}
+		
+		th + th, 
+		th + td,
+		td + td {
+			border-left: 1px solid $color__gray--light;
+		}
+		
+		th, 
+		td {
+			border-top: 1px solid $color__gray--light;
+		}
+		
+	}
+	
+}
