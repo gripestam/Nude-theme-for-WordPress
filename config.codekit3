@@ -51,58 +51,49 @@
 		"oF": 0,
 		"oS": 0
 		},
-	"\/assets\/js\/main.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/assets\/js\/min\/main-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
 	"\/assets\/js\/plugins.js": {
 		"ft": 64,
-		"mi": 1,
+		"mi": 0,
 		"oA": 0,
 		"oAP": "\/assets\/js\/min\/plugins-min.js",
 		"oF": 0,
-		"sC": 1,
+		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/vendor\/jquery-1.10.2.min.js": {
+	"\/assets\/js\/vendor\/jquery-3.1.1.min.js": {
 		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/assets\/js\/vendor\/min\/jquery-1.10.2.min-min.js",
-		"oF": 0,
-		"sC": 1,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/assets\/js\/vendor\/min\/jquery-3.1.1.min-min.js",
+		"oF": 1,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/assets\/js\/vendor\/mediaqueries.js": {
 		"ft": 64,
-		"mi": 1,
-		"oA": 0,
+		"mi": 0,
+		"oA": 1,
 		"oAP": "\/assets\/js\/vendor\/min\/mediaqueries-min.js",
-		"oF": 0,
-		"sC": 1,
+		"oF": 1,
+		"sC": 0,
 		"tS": 0
 		},
-	"\/assets\/js\/vendor\/modernizr-2.6.2.min.js": {
+	"\/assets\/js\/vendor\/modernizr-3.3.1.min.js": {
 		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/assets\/js\/vendor\/min\/modernizr-2.6.2.min-min.js",
-		"oF": 0,
-		"sC": 1,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/assets\/js\/vendor\/min\/modernizr-3.3.1.min-min.js",
+		"oF": 1,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/assets\/js\/vendor\/selectivizr-min.js": {
 		"ft": 64,
-		"mi": 1,
-		"oA": 0,
+		"mi": 0,
+		"oA": 1,
 		"oAP": "\/assets\/js\/vendor\/min\/selectivizr-min-min.js",
-		"oF": 0,
-		"sC": 1,
+		"oF": 1,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/assets\/scss\/_base.scss": {

@@ -6,10 +6,11 @@
  * @subpackage Nude
  */
 ?><!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10" <?php language_attributes(); ?>> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +22,8 @@
 		<?php //Mobile Internet Explorer allows us to activate ClearType technology for smoothing fonts for easy reading ?>
 		<meta http-equiv="cleartype" content="on">
 		
-        <!--<link rel="stylesheet" href="<?php bloginfo('url'); ?>/assets/css/normalize.css">-->
         <link rel="stylesheet" href="<?php bloginfo('url'); ?>/assets/css/main-min.css">
-        <script src="<?php bloginfo('url'); ?>/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="<?php bloginfo('url'); ?>/assets/js/vendor/modernizr-3.3.1.min.js"></script>
         <!--[if lt IE 9]>
 			<script src="<?php bloginfo('url'); ?>/assets/js/vendor/mediaqueries.js"></script>
 			<script src="<?php bloginfo('url'); ?>/assets/js/vendor/selectivizr-min.js"></script>
