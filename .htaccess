@@ -11,6 +11,25 @@ RewriteRule . /index.php [L]
 # END WordPress
 
 
+# ------------------------------------------------------------------------------
+# | Cross-domain Protection as recommended by Sucuri                           |
+# ------------------------------------------------------------------------------
+
+# Improve the security of your site against some types of XSS (cross-site scripting) attacks
+# https://kb.sucuri.net/warnings/hardening/headers-x-xss-protection
+
+<IfModule mod_headers.c>
+	Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+
+# Improve the security of your site against ClickJacking.
+# It is supported by all browsers and prevents an attacker from iframing the content of your site into others.
+# https://kb.sucuri.net/warnings/hardening/headers-x-frame-clickjacking
+
+<IfModule mod_headers.c>
+	Header always append X-Frame-Options SAMEORIGIN
+</IfModule>
 
 
 # ------------------------------------------------------------------------------
