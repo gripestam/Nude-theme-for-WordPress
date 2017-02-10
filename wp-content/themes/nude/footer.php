@@ -23,7 +23,8 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php bloginfo('url'); ?>/assets/js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
-        <script src="<?php bloginfo('url'); ?>/assets/js/plugins.js"></script>
+        <script src="<?php bloginfo('url'); ?>/assets/js/min/plugins-min.js"></script>
+        <script src="<?php bloginfo('url'); ?>/assets/js/vendor/lightgallery-1.3.5.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

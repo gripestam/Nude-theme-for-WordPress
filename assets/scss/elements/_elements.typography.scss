@@ -124,6 +124,12 @@ ul {
 	list-style-type: square;
 }
 
+pre {
+	font-size: .75rem;
+	background-color: $color__gray--x-light;
+	padding: 1em;
+}
+
 p {
 	margin: 0 0 1rem;
 }

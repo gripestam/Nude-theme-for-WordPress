@@ -51,9 +51,50 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/assets\/images\/lightbox\/loading.gif": {
+		"ft": 4194304,
+		"iS": 4178,
+		"oA": 0,
+		"oAP": "\/assets\/images\/lightbox\/loading.gif",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/images\/lightbox\/video-play.png": {
+		"ft": 32768,
+		"iS": 4526,
+		"oA": 0,
+		"oAP": "\/assets\/images\/lightbox\/video-play.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/images\/lightbox\/vimeo-play.png": {
+		"ft": 32768,
+		"iS": 5428,
+		"oA": 0,
+		"oAP": "\/assets\/images\/lightbox\/vimeo-play.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/images\/lightbox\/youtube-play.png": {
+		"ft": 32768,
+		"iS": 5177,
+		"oA": 0,
+		"oAP": "\/assets\/images\/lightbox\/youtube-play.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/assets\/js\/min\/plugins-min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/min\/min\/plugins-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/plugins.js": {
 		"ft": 64,
-		"mi": 0,
+		"mi": 1,
 		"oA": 0,
 		"oAP": "\/assets\/js\/min\/plugins-min.js",
 		"oF": 0,
@@ -67,6 +108,15 @@
 		"oAP": "\/assets\/js\/vendor\/min\/jquery-3.1.1.min-min.js",
 		"oF": 1,
 		"sC": 0,
+		"tS": 0
+		},
+	"\/assets\/js\/vendor\/lightgallery-1.3.5.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/assets\/js\/vendor\/min\/lightgallery-1.3.5.min-min.js",
+		"oF": 0,
+		"sC": 1,
 		"tS": 0
 		},
 	"\/assets\/js\/vendor\/mediaqueries.js": {
@@ -213,6 +263,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/scss\/components\/_components.lightgallery.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/css\/_components.lightgallery.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/scss\/components\/_components.pagination.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -235,6 +298,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/assets\/scss\/css\/_components.search.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/scss\/components\/_components.wp-gallery.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/assets\/scss\/css\/_components.wp-gallery.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

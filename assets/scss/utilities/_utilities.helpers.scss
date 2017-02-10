@@ -1,6 +1,71 @@
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+.editorial-narrow, .editorial, .editorial-wide {
+	margin: 0 3% !important;
+}
+
+.editorial-narrow {
+	margin: 0 3% !important;
+	
+	@media screen and (min-width: 48em) {
+		margin: 0 15% !important;
+	}
+	@media screen and (min-width: 64em) {
+		margin: 0 5% !important;
+	}
+	@media screen and (min-width: 82em) {
+		margin: 0 15% !important;
+	}
+	@media screen and (min-width: 100em) {
+		margin: 0 22.5% !important;
+	}
+	@media screen and (min-width: 120em) {
+		margin: 0 27.5% !important;
+	}
+	@media screen and (min-width: 140em) {
+		margin: 0 30% !important;
+	}
+}
+.editorial {
+	margin: 0 3% !important;
+	
+	@media screen and (min-width: 64em) {
+		margin: 0 5% !important;
+	}
+	@media screen and (min-width: 82em) {
+		margin: 0 10% !important;
+	}
+	@media screen and (min-width: 100em) {
+		margin: 0 15% !important;
+	}
+	@media screen and (min-width: 120em) {
+		margin: 0 20% !important;
+	}
+	@media screen and (min-width: 140em) {
+		margin: 0 22.5% !important;
+	}
+}
+
+.editorial-wide {
+	margin: 0 3% !important;
+	
+	@media screen and (min-width: 64em) {
+		margin: 0 5% !important;
+	}
+	@media screen and (min-width: 82em) {
+		margin: 0 7.5% !important;
+	}
+	@media screen and (min-width: 100em) {
+		margin: 0 10% !important;
+	}
+	@media screen and (min-width: 132em) {
+		margin: 0 15% !important;	
+	}
+}
+
+
+
 .mobile {
 	display: block;
 	

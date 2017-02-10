@@ -33,3 +33,34 @@
 	});
 
 })(jQuery);
+
+
+// Add lightgallery classes to anchor tags in wp post galleries
+(function($) {
+
+	$.fn.addLightboxWPGallery = function() {
+		
+		var wpgallery = $('.entry-content .gallery');
+		
+		wpgallery.find('a').addClass('lightgallery-item');
+		
+	}
+	$('body').addLightboxWPGallery();
+
+})(jQuery);
+
+
+// Initiate lightgallery
+(function($) {
+
+	$(function() {
+	
+		$("#page").lightGallery({
+			selector: '.lightgallery-item',
+			download: false,
+			getCaptionFromTitleOrAlt: false
+		});
+	
+	});
+
+})(jQuery);
