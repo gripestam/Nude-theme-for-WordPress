@@ -85,7 +85,7 @@ add_filter( 'image_size_names_choose', 'site_image_sizes' );
  */
 function content_linked_images_class($content) {
 
-	$classes = 'lightgallery'; // separate classes by spaces - 'img image-link'
+	$classes = 'lightgallery-item'; // separate classes by spaces - 'img image-link'
 
 	// check if there are already a class property assigned to the anchor
 	if ( preg_match('/<a.*? class=".*?"><img/', $content) ) {
